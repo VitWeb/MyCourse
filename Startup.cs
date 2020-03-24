@@ -20,17 +20,22 @@ namespace MyCourse
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime lifetime)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                //aggiorniamo un file per notificare al BrowserSync che deve aggiornare la pagina
+                /// cancellato perchè non funziona
             }
 
             if (!env.IsDevelopment())
             {
                 app.UseHttpsRedirection();
             }
+
+
             
             
 
